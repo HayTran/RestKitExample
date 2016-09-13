@@ -1,0 +1,6 @@
+framework module Pods_RestKitExample {
+  umbrella header "Pods-RestKitExample-umbrella.h"
+
+  export *
+  module * { export * }
+}
