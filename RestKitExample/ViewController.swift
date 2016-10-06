@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         
         // Define response decriptor
         
-        let statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClass.Successful);
+        let statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClass.Successful)
         let resDescriptor = RKResponseDescriptor(mapping: postMapping, method: RKRequestMethod.GET, pathPattern: "/posts/:id", keyPath: nil, statusCodes: statusCodes)
         
         // Create object manager
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         
         RKObjectManager.sharedManager().getObjectsAtPath("/posts/1", parameters: nil, success: { (operation, mappingResult) -> Void in
             
-            let post: Post = mappingResult.firstObject as! Post;
+            let post: Post = mappingResult.firstObject as! Post
             
             self.idLabel.text = "\(post.id)"
             self.userIdLabel.text = "\(post.userId)"
