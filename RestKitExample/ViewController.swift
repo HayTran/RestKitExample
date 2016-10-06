@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         
         // Create object manager
         
-        let url = NSURL(string: "http://jsonplaceholder.typicode.com")
+        let url = NSURL(string: "https://jsonplaceholder.typicode.com")
         let jsonPlaceholderManager = RKObjectManager(baseURL: url)
         jsonPlaceholderManager.addResponseDescriptor(resDescriptor)
         RKObjectManager.setSharedManager(jsonPlaceholderManager)
