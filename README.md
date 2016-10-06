@@ -3,6 +3,8 @@ An example to demonstrate the use of RestKit with Swift.
 
 ![Alt text](screenshots/RestKitExample-Screenshot.png?raw=true "RestKit Example")
 
+![ScreenShot](https://raw.github.com/akilabala/RestKitExample/master/screenshots/RestKitExample-Screenshot.png)
+
 # Instructions
 
 1) Clone the repository
