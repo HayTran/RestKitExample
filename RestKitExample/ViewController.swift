@@ -18,45 +18,47 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Define mappings
-        
-        let postMapping: RKObjectMapping = RKObjectMapping(for: Post.self)
-        postMapping.addAttributeMappings(from: ["userId", "id", "title", "body"])
+        // Define respone mappings
+        let postMapping: RKObjectMapping = RKObjectMapping(for: Result.self)
+        postMapping.addAttributeMappings(from: ["result", "message"])
         
         // Define response decriptor
-        
         let statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClass.successful)
-        let resDescriptor = RKResponseDescriptor(mapping: postMapping, method: RKRequestMethod.GET, pathPattern: "/posts/:id", keyPath: nil, statusCodes: statusCodes)
+        let resDescriptor = RKResponseDescriptor(mapping: postMapping, method: RKRequestMethod.POST, pathPattern: "index.php/apis/customer/info/is_valid", keyPath: nil, statusCodes: statusCodes)
+       
+        // Make request data
+        let checkData =  CheckData()
+        checkData.customer_id = "9"
+        checkData.device_id = "89"
+        
+        // Define request mapping
+        let requestMapping  : RKObjectMapping = RKObjectMapping.request()
+        requestMapping.addAttributeMappings(from: ["customer_id", "device_id"])
+        let reqDescriptor = RKRequestDescriptor(mapping: requestMapping, objectClass: CheckData.self, rootKeyPath: nil, method: RKRequestMethod.POST)
         
         // Create object manager
-        
-        let url = URL(string: "https://jsonplaceholder.typicode.com")
+        let url = URL(string: "https://trendcloud.net/")
         let jsonPlaceholderManager = RKObjectManager(baseURL: url!)
         jsonPlaceholderManager?.addResponseDescriptor(resDescriptor)
-        RKObjectManager.setShared(jsonPlaceholderManager)
+        jsonPlaceholderManager?.addRequestDescriptor(reqDescriptor)
+        jsonPlaceholderManager?.requestSerializationMIMEType = RKMIMETypeJSON
         
-        // Perform GET request
+         // Enable response in text/html format
+        jsonPlaceholderManager?.setAcceptHeaderWithMIMEType("text/html")
+        RKMIMETypeSerialization.registerClass(RKNSJSONSerialization.self, forMIMEType: "text/html")
         
-        RKObjectManager.shared().getObjectsAtPath("/posts/1", parameters: nil, success: { (operation, mappingResult) -> Void in
+        // Perform POST request
+        jsonPlaceholderManager?.post(checkData, path: "index.php/apis/customer/info/is_valid", parameters: nil, success: { (operation, mappingResult ) in
+            print("success")
             
-            let post: Post = mappingResult!.firstObject as! Post
-            
-            self.idLabel.text = "\(post.id)"
-            self.userIdLabel.text = "\(post.userId)"
-            self.titleLabel.text = "\(post.title)"
-            self.bodyLabel.text = "\(post.body)"
-            
-        }) { (operation, error) -> Void in
-            print(error?.localizedDescription)
+        }) { (operation, error) in
+                    print(error?.localizedDescription)
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 

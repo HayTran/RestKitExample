@@ -12,7 +12,8 @@
 		05C791D31D8879E80029C6C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05C791D11D8879E80029C6C2 /* Main.storyboard */; };
 		05C791D51D8879E80029C6C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05C791D41D8879E80029C6C2 /* Assets.xcassets */; };
 		05C791D81D8879E80029C6C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05C791D61D8879E80029C6C2 /* LaunchScreen.storyboard */; };
-		05C791E31D887C840029C6C2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C791E21D887C840029C6C2 /* Post.swift */; };
+		673E6D831F7E0C6700AD1067 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673E6D821F7E0C6700AD1067 /* Result.swift */; };
+		673E6D851F7E0EF200AD1067 /* CheckData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673E6D841F7E0EF200AD1067 /* CheckData.swift */; };
 		8FEAD4C88BAB5D34D3F15F54 /* Pods_RestKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB0741AC8467C19AD240EBF /* Pods_RestKitExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +26,8 @@
 		05C791D71D8879E80029C6C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05C791D91D8879E80029C6C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C791DF1D887C4F0029C6C2 /* RestKitExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RestKitExample-Bridging-Header.h"; sourceTree = "<group>"; };
-		05C791E21D887C840029C6C2 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		673E6D821F7E0C6700AD1067 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		673E6D841F7E0EF200AD1067 /* CheckData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckData.swift; sourceTree = "<group>"; };
 		7FFA550E75117D9474DE7444 /* Pods-RestKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestKitExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestKitExample/Pods-RestKitExample.release.xcconfig"; sourceTree = "<group>"; };
 		8EB0741AC8467C19AD240EBF /* Pods_RestKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA5992E1F80314955E4C1428 /* Pods-RestKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestKitExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestKitExample/Pods-RestKitExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,13 +67,14 @@
 			isa = PBXGroup;
 			children = (
 				05C791CD1D8879E80029C6C2 /* AppDelegate.swift */,
+				673E6D821F7E0C6700AD1067 /* Result.swift */,
 				05C791CF1D8879E80029C6C2 /* ViewController.swift */,
 				05C791D11D8879E80029C6C2 /* Main.storyboard */,
 				05C791D41D8879E80029C6C2 /* Assets.xcassets */,
 				05C791D61D8879E80029C6C2 /* LaunchScreen.storyboard */,
 				05C791D91D8879E80029C6C2 /* Info.plist */,
 				05C791DF1D887C4F0029C6C2 /* RestKitExample-Bridging-Header.h */,
-				05C791E21D887C840029C6C2 /* Post.swift */,
+				673E6D841F7E0EF200AD1067 /* CheckData.swift */,
 			);
 			path = RestKitExample;
 			sourceTree = "<group>";
@@ -215,9 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05C791E31D887C840029C6C2 /* Post.swift in Sources */,
 				05C791D01D8879E80029C6C2 /* ViewController.swift in Sources */,
+				673E6D851F7E0EF200AD1067 /* CheckData.swift in Sources */,
 				05C791CE1D8879E80029C6C2 /* AppDelegate.swift in Sources */,
+				673E6D831F7E0C6700AD1067 /* Result.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
