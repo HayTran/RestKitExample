@@ -20,35 +20,34 @@ class ViewController: UIViewController {
         
         // Define mappings
         
-        let postMapping: RKObjectMapping = RKObjectMapping(forClass: Post.self)
-        postMapping.addAttributeMappingsFromArray(["userId", "id", "title", "body"])
+        let postMapping: RKObjectMapping = RKObjectMapping(for: Post.self)
+        postMapping.addAttributeMappings(from: ["userId", "id", "title", "body"])
         
         // Define response decriptor
         
-        let statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClass.Successful)
+        let statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClass.successful)
         let resDescriptor = RKResponseDescriptor(mapping: postMapping, method: RKRequestMethod.GET, pathPattern: "/posts/:id", keyPath: nil, statusCodes: statusCodes)
         
         // Create object manager
         
-        let url = NSURL(string: "https://jsonplaceholder.typicode.com")
-        let jsonPlaceholderManager = RKObjectManager(baseURL: url)
-        jsonPlaceholderManager.addResponseDescriptor(resDescriptor)
-        RKObjectManager.setSharedManager(jsonPlaceholderManager)
+        let url = URL(string: "https://jsonplaceholder.typicode.com")
+        let jsonPlaceholderManager = RKObjectManager(baseURL: url!)
+        jsonPlaceholderManager?.addResponseDescriptor(resDescriptor)
+        RKObjectManager.setShared(jsonPlaceholderManager)
         
         // Perform GET request
         
-        RKObjectManager.sharedManager().getObjectsAtPath("/posts/1", parameters: nil, success: { (operation, mappingResult) -> Void in
+        RKObjectManager.shared().getObjectsAtPath("/posts/1", parameters: nil, success: { (operation, mappingResult) -> Void in
             
-            let post: Post = mappingResult.firstObject as! Post
+            let post: Post = mappingResult!.firstObject as! Post
             
             self.idLabel.text = "\(post.id)"
             self.userIdLabel.text = "\(post.userId)"
             self.titleLabel.text = "\(post.title)"
             self.bodyLabel.text = "\(post.body)"
             
-            
         }) { (operation, error) -> Void in
-            print(error.localizedDescription)
+            print(error?.localizedDescription)
         }
         
     }
